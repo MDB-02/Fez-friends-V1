@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="/fez&friends/index.html">home</a></li>
+            <li><a href="/fez&friends/about/about.html">about</a></li>
+            <li><a href="/fez&friends/menu/menu.html">menu</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false">
+            <h3>GET IN TOUCH</h3>
+            <input type="text" id="name" placeholder="your name" required>
+            <input type="email" id="email" placeholder="Email Id" required>
+            <input type="text" id="phone" placeholder="phone number" required>
+            <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
+            <button type="submit">Send</button>
+        </form>    
+    </div>
+    <script src="https:/smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+                Host:"smtp.gmail.com",
+                Username:"leviackrman937@gmail.com",
+                Password:"bekkich2004",
+                To:"leviackrman937@gmail.com",
+                Form: document.getElementById("email").value,
+                Subject:"new contact form Enquiry",
+                Body:"this is body",
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
+</body>
+</html>
